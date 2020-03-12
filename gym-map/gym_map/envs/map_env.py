@@ -55,7 +55,7 @@ class MapEnv(gym.Env):
         self.overhowmany = 200000
         self.decay = self.REN/self.overhowmany
         self.score = 0
-        self.action_space = spaces.Discrete(8)
+        self.action_space = spaces.Discrete(4)
         self.observation_space = spaces.Box(low=0, high=255, shape=(84, 84, 3))
         os.environ["SDL_VIDEO_CENTERED"] = "1"
         pygame.init()
@@ -154,18 +154,6 @@ class MapEnv(gym.Env):
             agentup = True
         if act == 3:
             agentdown = True
-        if act == 4:
-            agentleft = True
-            agentup = True
-        if act == 5:
-            agentup = True
-            agentright = True
-        if act == 6:
-            agentright = True
-            agentdown = True
-        if act == 7:
-            agentdown = True
-            agentleft = True
             
         if useideal:
             agentleft = idealleft
